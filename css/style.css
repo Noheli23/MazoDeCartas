@@ -1,0 +1,30 @@
+#logo img{
+width: 100%;
+  
+}
+
+button{
+    background-color: rgb(187, 35, 35) !important;
+    color: white !important;
+}
+
+button:hover{
+    background-color: rgb(172, 18, 13) !important;
+    
+}
+
+#cartas img{
+    width: 100%;
+    display: inline !important;
+}
+#cartas button{
+    background-color: white !important;
+}
+
+#btn2 button{
+ background-color:rgb(187, 35, 35) !important; ;
+}
+#btn2 button:hover{
+    background-color: rgb(172, 18, 13) !important;
+    
+}
