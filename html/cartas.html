@@ -11,7 +11,7 @@
 </head>
 <body>
     
-    <div class="container img-fluid col-sm-4 col-md-4 ml-0 " id="logo">
+    <div class="container img-fluid col-sm-4 col-md-4 ml-0 py-2" id="logo">
         <img src="../img/logo.jpg" alt="">
     </div>
     
@@ -44,25 +44,13 @@
                             <th scope="col">Cantidad</th>
                         </tr>
                       </thead>
-                      <tbody>
-                        <tr>
-                            <td scope="col">#</td>
-                            <td scope="col">Carta</td>
-                            <td scope="col">Cantidad</td>
+                      <tbody id="tabla">
 
-                        </tr>
-                        <tr>
-                            <td scope="col">#</td>
-                            <td scope="col">Carta</td>
-                            <td scope="col">Cantidad</td>
-
-                        </tr>
-                      </tbody>
-
+                     </tbody>
 
                 </table>
 
-                <div class=" container col-12 col-sm-12 col-md-12 mt-5 mb-5 border shadow  bg-light rounded" id="cc">
+                <div class=" container col-12 col-sm-12 col-md-12 mt-5 mb-5 border shadow  bg-light rounded" >
                     <div class="text-center py-4">
                         <h4>Registro de cartas</h4>
                     </div>
@@ -70,16 +58,16 @@
                     <div class="mb-3 row">
                         <label for="staticEmail" class="col-sm-2  col-form-label">Número</label>
                         <div class="col-sm-9">
-                          <input type="text"  class="form-control" id="staticEmail">
+                          <input type="text"  class="form-control" id="numero">
                         </div>
                       </div>
                       <div class="mb-3 row">
                         <label for="inputPassword" class="col-sm-2  col-form-label">Carta</label>
                         <div class="col-sm-9">
-                          <input type="password" class="form-control" id="inputPassword">
+                          <input type="text" class="form-control" id="carta">
                         </div>
                       </div>
-                    <div class="text-center py-3 mb-3" id="btn2"><button type="button" class=" btn col-md-5" >Guardar</button></div> 
+                    <div class="text-center py-3 mb-3" id="btn2"><button type="button" class=" btn col-md-5" id="cc" >Guardar</button></div> 
             </div>
         </div>
 

@@ -1,27 +1,57 @@
 (function () {
-    document.getElementById('lol').addEventListener('click', validar); 
+    document.getElementById('cc').addEventListener('click', getCartas()); 
 })();
 
-let json = [{
-    usuario: "",
-    clave: ""
-    }]; 
+const url= '../data.json'
 
-    let usuario="admin";
-    let clave="1234";
-    localStorage.setItem("usuario",usuario);
-    localStorage.setItem("clave",clave);
-localStorage.setItem("json",JSON.stringify(json));
+fetch(url)
+.then(response => response.json())
+.then(data => {
 
-function validar(){
-    var u=document.getElementById("nombre").value;
-    var c=document.getElementById("clave").value;
+    let res=document.getElementById('tabla')
+    for (let i of data) {
+        
+        res.innerHTML+= `
+         <tr>
+            <td>${i.numero}</td>
+            <td>${i.carta}</td>
+            <td>${i.cant}</td>
+                    
+            </tr>
+          `          
+    }
 
-    if (u==usuario && c==clave){
-        location.href = '../html/cartas.html'
-        console.log(u)
+})
+
+
+var cartas=[];
+
+function leer(){
+    var num=document.getElementById("numero");
+    var car=document.getElementById("carta");
+
+    let nuevaC = {
+        numero: num,
+        carta: car,
+        cant: 0
+        }; 
+
+        cartas.push(nuevaC);
+}
+
+function getCartas(){
+    var storedList=localStorage.getItem('datos');
+
+    if(storedList==null){
+        cartas=[];
     }else{
-        alert("Usuario o contraseña incorrectos");
-       
-    }  
+        cartas=JSON.parse(storedList);
+        console.log(cartas);
+    }
+    return cartas;
+    
+}
+
+function localStorageCartas(list){
+localStorage.setItem('datos',JSON.stringify(list));
 }
