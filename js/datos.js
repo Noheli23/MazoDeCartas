@@ -1,6 +1,6 @@
-(function () {
-    document.getElementById('cc').addEventListener('click', getCartas()); 
-})();
+document.querySelector('#cc').addEventListener('click', leer); 
+document.querySelector('#cc').addEventListener('click', table); 
+table();
 
 const url= '../data.json'
 
@@ -27,8 +27,8 @@ fetch(url)
 var cartas=[];
 
 function leer(){
-    var num=document.getElementById("numero");
-    var car=document.getElementById("carta");
+    var num=document.getElementById("numero").value;
+    var car=document.getElementById("carta").value;
 
     let nuevaC = {
         numero: num,
@@ -37,6 +37,7 @@ function leer(){
         }; 
 
         cartas.push(nuevaC);
+        localStorageCartas(cartas);
 }
 
 function getCartas(){
@@ -54,4 +55,25 @@ function getCartas(){
 
 function localStorageCartas(list){
 localStorage.setItem('datos',JSON.stringify(list));
+}
+
+function table(){
+ var list = getCartas();
+ tbody = document.getElementById('tabla');
+ 
+tbody.innerHTML='';
+
+for(var i=0; i<list.length; i++){
+    var row= tbody.insertRow(i),
+    num=row.insertCell(0),
+    car=row.insertCell(1),
+    can=row.insertCell(2);
+
+    num.innerHTML=list[i].numero;
+    car.innerHTML=list[i].carta;
+    can.innerHTML=list[i].cant;
+
+    tbody.appendChild(row);
+}
+
 }
