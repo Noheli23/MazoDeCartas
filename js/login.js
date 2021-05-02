@@ -18,7 +18,7 @@ function validar(){
     var c=document.getElementById("clave").value;
 
     if (u==usuario && c==clave){
-        location.href = '../html/cartas.html'
+        location.href = 'html/cartas.html'
         console.log(u)
     }else{
         alert("Usuario o contraseña incorrectos");
