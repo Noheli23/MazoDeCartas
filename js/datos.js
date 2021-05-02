@@ -1,28 +1,45 @@
-document.querySelector('#cc').addEventListener('click', leer); 
-document.querySelector('#cc').addEventListener('click', table); 
-table();
+(function () {
+    document.querySelector('#cc').addEventListener('click', leer);
+    
+    table(); 
+})();
 
-const url= '../data.json'
 
-fetch(url)
-.then(response => response.json())
-.then(data => {
+// const url= '../data.json'
 
-    let res=document.getElementById('tabla')
-    for (let i of data) {
+// fetch(url)
+// .then(response => response.json())
+// .then(data => {
+
+//     let res=document.getElementById('tabla')
+//     for (let i of data) {
         
-        res.innerHTML+= `
-         <tr>
-            <td>${i.numero}</td>
-            <td>${i.carta}</td>
-            <td>${i.cant}</td>
+//         res.innerHTML+= `
+//          <tr>
+//             <td>${i.numero}</td>
+//             <td>${i.carta}</td>
+//             <td>${i.cant}</td>
                     
-            </tr>
-          `          
-    }
+//             </tr>
+//           `          
+//     }
 
-})
+// })
 
+$(".btn").click(function(){
+    var datos = localStorage.getItem('datos');
+  
+      datos = JSON.parse(datos);
+  
+      for(let item of datos) {
+          if(item.numero == this.dataset.carta) {
+              item.cant ++;
+          }
+      }
+  
+      localStorage.setItem('datos', JSON.stringify(datos));
+      table();
+  });
 
 var cartas=[];
 
@@ -30,14 +47,19 @@ function leer(){
     var num=document.getElementById("numero").value;
     var car=document.getElementById("carta").value;
 
-    let nuevaC = {
+    if(num>13){
+        alert("Sólo debe ingresar un número del 1 al 13")
+    }else{
+     let nuevaC = {
         numero: num,
         carta: car,
         cant: 0
         }; 
 
         cartas.push(nuevaC);
-        localStorageCartas(cartas);
+        localStorageCartas(cartas);   
+    }
+
 }
 
 function getCartas(){
@@ -77,3 +99,4 @@ for(var i=0; i<list.length; i++){
 }
 
 }
+table();
