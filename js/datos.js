@@ -1,30 +1,7 @@
 (function () {
     document.querySelector('#cc').addEventListener('click', leer);
-    
     table(); 
 })();
-
-
-// const url= '../data.json'
-
-// fetch(url)
-// .then(response => response.json())
-// .then(data => {
-
-//     let res=document.getElementById('tabla')
-//     for (let i of data) {
-        
-//         res.innerHTML+= `
-//          <tr>
-//             <td>${i.numero}</td>
-//             <td>${i.carta}</td>
-//             <td>${i.cant}</td>
-                    
-//             </tr>
-//           `          
-//     }
-
-// })
 
 $(".btn").click(function(){
     var datos = localStorage.getItem('datos');

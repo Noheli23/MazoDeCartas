@@ -21,7 +21,7 @@ function validar(){
         location.href = 'html/cartas.html'
         console.log(u)
     }else{
-        alert("Usuario o contraseña incorrectos");
+        alert("Usuario o contraseña incorrectos "+"\n"+ "admin 1234");
        
     }  
 }
